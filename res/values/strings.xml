@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">memoryBook</string>
+    <string name="action_settings">Settings</string>
+    <string name="welcome">Welcome to Memory Book please select a relation below or got to help</string>
+    <string name="add">Add Additional Item</string>
+    <string name="mic">Click to Speak</string>
+    <string name="edit">&quot;Click to Edit&quot;</string>
+    <string name="help">Click for Help!</string>
+    <string name="gma_icon">Grandma Picture</string>
+    <string name="gma_name">Grandma Cauthorn</string>
+    <string name="ph1">John Doe</string>
+    <string name="ph2">Jane Doe</string>
+    <string name="placeholder">Simple Place Holder</string>
+    <string name="title_relation">Relationships</string>
+    <string name="memory">Memorymemory_instmemory_inst</string>
+    <string name="memory1">I love you…</string>
+    <string name="memory2">I miss you…</string>
+    <string name="memory3">I wish you were here…</string>
+    <string name="memory4">I need your advice…</string>
+    <string name="title_memories">Memories</string>
+    <string name="memory_inst">Please select the memory below which you wish to view. Or use the microphone to talk dirrectly to the person.</string>
+    <string name="helpTxt">This application is built to help you connect with your loved ones. 
+        Either use the menu options via the touch screen or press the microphone and then give 
+        your command.
+        \n\nTo view your memories, click the “View Memories” Icon or speak “View Memories”. 
+        To return to return to the main menu use the back button or say “Main Menu”.  
+        To View a memory click the person’s name or say the person’s Name.   
+        \n\nTo play a memory provide use your finger to select the memory or speak the saved 
+        command associated with the memory.  To play the next memory click next, to play the 
+        previous click previous or simply provide an additional command associated with a 
+        different menu.  
+        \n\nTo Pause a memory click the pause button. And to close the application click the 
+        return button. 
+         </string>
+    <string name="close">Close</string>
+    <string name="notAvail">Sorry this features is not available yet!</string>
+
+</resources>
