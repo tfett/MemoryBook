@@ -75,6 +75,7 @@
             android:scrollbars="vertical" >
 
             <FrameLayout
+                android:id="@+id/frameLayout21"
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
                 android:background="@drawable/textlines"
@@ -107,6 +108,7 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/frameLayout22"
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
                 android:background="@drawable/textlines" >
@@ -138,6 +140,7 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/frameLayout23"
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
                 android:background="@drawable/textlines" >
@@ -169,6 +172,7 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/frameLayout24"
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
                 android:background="@drawable/textlines" >

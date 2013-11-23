@@ -16,7 +16,6 @@ public class Relations extends Activity implements OnClickListener {
 	Button btnClosePopup; 
 	ImageButton btnCreatePopup, add, help, edit;
 	ImageView mic;	
-	TextView gma;
 
     //For Change View on Image Button
     ImageButton button;
@@ -33,10 +32,8 @@ public class Relations extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_relations);
         //change view
-        addListenerGma();
-        gma = (TextView) findViewById(R.id.gma_txt);
-        gma.setOnClickListener(onClickListener);
-        
+       
+        //Handles Clicks to common items
         findViewById(R.id.mic).setOnClickListener(this);
         add = (ImageButton) findViewById(R.id.add);
         add.setOnClickListener(onClickListener);
@@ -45,7 +42,7 @@ public class Relations extends Activity implements OnClickListener {
         help = (ImageButton) findViewById(R.id.help);
         help.setOnClickListener(onClickListener);
         
-        
+        //Handles Clicks to Frame 1 and children
         final FrameLayout frame01 = (FrameLayout) findViewById(R.id.frameLayout1);
         frame01.setOnClickListener(new View.OnClickListener() {         
             @Override
@@ -55,7 +52,32 @@ public class Relations extends Activity implements OnClickListener {
                 startActivity(intent); 
             }
         });
+        final ImageButton button = (ImageButton) findViewById(R.id.pic1_gma);
+		button.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				final Context context = Relations.this;
+			    Intent intent = new Intent(context, Memory.class);
+                startActivity(intent); 
+                
+                
+			}
+		});
+        final TextView gma = (TextView) findViewById(R.id.gma_txt);
+        gma.setOnClickListener(new View.OnClickListener() {         
+            @Override
+            public void onClick(View v) {
+                final Context context = Relations.this;
+    			Intent intent = new Intent(context, Memory.class);
+                startActivity(intent); 
+            }
+        });
         
+        
+        
+        
+        
+        //Handles Clicks to Frame 2
         final FrameLayout frame02 = (FrameLayout) findViewById(R.id.frameLayout2);
         frame02.setOnClickListener(new View.OnClickListener() {         
             @Override
@@ -63,6 +85,15 @@ public class Relations extends Activity implements OnClickListener {
             	initiatePopupWindow(R.id.not_a, R.layout.not_avail, 375, 200); 
             }
         });
+        final TextView johnd = (TextView) findViewById(R.id.memory_txt2);
+        johnd.setOnClickListener(new View.OnClickListener() {         
+            @Override
+            public void onClick(View v) {
+            	initiatePopupWindow(R.id.not_a, R.layout.not_avail, 375, 200);
+            }
+        });
+        
+        //Handles Click to Frame 3
         final FrameLayout frame03 = (FrameLayout) findViewById(R.id.frameLayout3);
         frame03.setOnClickListener(new View.OnClickListener() {         
             @Override
@@ -70,7 +101,13 @@ public class Relations extends Activity implements OnClickListener {
             	initiatePopupWindow(R.id.not_a, R.layout.not_avail, 375, 200); 
             }
         });
-        
+        final TextView janed = (TextView) findViewById(R.id.memory_txt3);
+        janed.setOnClickListener(new View.OnClickListener() {         
+            @Override
+            public void onClick(View v) {
+            	initiatePopupWindow(R.id.not_a, R.layout.not_avail, 375, 200);
+            }
+        });
     }
     
     
@@ -116,9 +153,7 @@ public class Relations extends Activity implements OnClickListener {
                 case R.id.edit:
                 	initiatePopupWindow(R.id.not_a, R.layout.not_avail, 375, 200);  
                 break;
-                case R.id.gma_txt:
-                	addListenerGma();  
-                break;
+                
             }
 
       }
@@ -136,24 +171,6 @@ public class Relations extends Activity implements OnClickListener {
     
     
     
-    //change view
-    public void addListenerGma() {
-    	 
-		final Context context = this;
-		button = (ImageButton) findViewById(R.id.pic1_gma);
-		button.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-			    Intent intent = new Intent(context, Memory.class);
-                startActivity(intent); 
-                
-                
-			}
-		});
-		
-		
-		
-	}
     
    
    //Pop up attempt 2 

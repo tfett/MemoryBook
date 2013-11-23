@@ -34,7 +34,7 @@ public class Memory extends Activity implements OnClickListener {
         
         findViewById(R.id.mic).setOnClickListener(this);
         
-        final FrameLayout frame01 = (FrameLayout) findViewById(R.id.frameLayout1);
+        final FrameLayout frame01 = (FrameLayout) findViewById(R.id.frameLayout21);
         frame01.setOnClickListener(new View.OnClickListener() {         
             @Override
             public void onClick(View v) {
@@ -44,19 +44,27 @@ public class Memory extends Activity implements OnClickListener {
             }
         });
         
-        final FrameLayout frame02 = (FrameLayout) findViewById(R.id.frameLayout2);
+        final FrameLayout frame02 = (FrameLayout) findViewById(R.id.frameLayout22);
         frame02.setOnClickListener(new View.OnClickListener() {         
             @Override
             public void onClick(View v) {
-            	initiatePopupWindow(R.id.not_a, R.layout.not_avail, 375, 200); //need to change location and from popup
+            	//need to change location and from popup
             }
         });
         
-        final FrameLayout frame03 = (FrameLayout) findViewById(R.id.frameLayout3);
+        final FrameLayout frame03 = (FrameLayout) findViewById(R.id.frameLayout23);
         frame03.setOnClickListener(new View.OnClickListener() {         
             @Override
             public void onClick(View v) {
-            	initiatePopupWindow(R.id.not_a, R.layout.not_avail, 375, 200); //need to change location and from popup
+            	//need to change location and from popup
+            }
+        });
+        
+        final FrameLayout frame04 = (FrameLayout) findViewById(R.id.frameLayout24);
+        frame04.setOnClickListener(new View.OnClickListener() {         
+            @Override
+            public void onClick(View v) {
+            	//need to change location and from popup
             }
         });
 	}
