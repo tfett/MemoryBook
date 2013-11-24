@@ -31,27 +31,28 @@ public final class R {
         public static final int textlines=0x7f020007;
     }
     public static final class id {
-        public static final int action=0x7f08001c;
+        public static final int action=0x7f08001f;
         public static final int add=0x7f080001;
-        public static final int btn_close_popup=0x7f08001a;
+        public static final int btn_close_popup=0x7f08001b;
         public static final int edit=0x7f080002;
         public static final int frameLayout1=0x7f080013;
-        public static final int frameLayout2=0x7f080014;
+        public static final int frameLayout2=0x7f080015;
         public static final int frameLayout21=0x7f080005;
         public static final int frameLayout22=0x7f080008;
         public static final int frameLayout23=0x7f08000b;
         public static final int frameLayout24=0x7f08000e;
-        public static final int frameLayout3=0x7f080016;
-        public static final int gma_txt=0x7f080007;
+        public static final int frameLayout3=0x7f080017;
+        public static final int gma_txt=0x7f080014;
         public static final int help=0x7f080011;
-        public static final int help_pu=0x7f080018;
+        public static final int help_pu=0x7f080019;
+        public static final int memory_txt1=0x7f080007;
         public static final int memory_txt2=0x7f08000a;
         public static final int memory_txt3=0x7f08000d;
         public static final int memory_txt4=0x7f080010;
         public static final int mic=0x7f080012;
-        public static final int not_a=0x7f08001b;
-        public static final int ph_icon2=0x7f080015;
-        public static final int ph_icon3=0x7f080017;
+        public static final int not_a=0x7f08001d;
+        public static final int ph_icon2=0x7f080016;
+        public static final int ph_icon3=0x7f080018;
         public static final int pic1_gma=0x7f080006;
         public static final int pic2_gma=0x7f080009;
         public static final int pic3_gma=0x7f08000c;
@@ -59,7 +60,9 @@ public final class R {
         public static final int scrollView1=0x7f080004;
         public static final int textView1=0x7f080003;
         public static final int title_m=0x7f080000;
-        public static final int txtView=0x7f080019;
+        public static final int ttsOn=0x7f08001c;
+        public static final int ttsOnNA=0x7f08001e;
+        public static final int txtView=0x7f08001a;
     }
     public static final class layout {
         public static final int activity_memories=0x7f030000;
@@ -93,6 +96,7 @@ public final class R {
         public static final int placeholder=0x7f05000b;
         public static final int title_memories=0x7f050012;
         public static final int title_relation=0x7f05000c;
+        public static final int tts=0x7f050017;
         public static final int welcome=0x7f050002;
     }
     public static final class style {

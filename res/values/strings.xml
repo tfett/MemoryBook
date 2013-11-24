@@ -27,14 +27,15 @@
         \n\nTo view your memories, click the “View Memories” Icon or speak “View Memories”. 
         To return to return to the main menu use the back button or say “Main Menu”.  
         To View a memory click the person’s name or say the person’s Name.   
-        \n\nTo play a memory provide use your finger to select the memory or speak the saved 
-        command associated with the memory.  To play the next memory click next, to play the 
-        previous click previous or simply provide an additional command associated with a 
+        \n\nTo play a memory use your finger to select the memory or speak the saved 
+        command associated with the memory.  To play the next memory click or say next, to play the 
+        previous click or say previous or simply provide an additional command associated with a 
         different menu.  
         \n\nTo Pause a memory click the pause button. And to close the application click the 
-        return button. 
+        home button. 
          </string>
     <string name="close">Close</string>
-    <string name="notAvail">Sorry this features is not available yet!</string>
+    <string name="notAvail">Sorry this feature is not available yet!</string>
+    <string name="tts">Text to Speech On</string>
 
 </resources>

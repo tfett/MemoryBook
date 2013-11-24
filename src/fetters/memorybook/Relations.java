@@ -1,17 +1,19 @@
 package fetters.memorybook;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.*;
 import android.content.*;
 import android.view.View.*;
-import android.speech.RecognizerIntent;
+import android.speech.*;
+import android.speech.tts.*;
 import android.widget.*;
 
 
 
-public class Relations extends Activity implements OnClickListener {
+public class Relations extends Activity implements OnClickListener, TextToSpeech.OnInitListener {
 	//pop ups 
 	Button btnClosePopup; 
 	ImageButton btnCreatePopup, add, help, edit;
@@ -20,7 +22,10 @@ public class Relations extends Activity implements OnClickListener {
     //For Change View on Image Button
     ImageButton button;
     
-    
+    //tts
+    ImageButton buttonSpeak;
+    ImageButton buttonSpeak2;
+    TextToSpeech tts ;
     
     
     //For Voice
@@ -52,30 +57,7 @@ public class Relations extends Activity implements OnClickListener {
                 startActivity(intent); 
             }
         });
-        final ImageButton button = (ImageButton) findViewById(R.id.pic1_gma);
-		button.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				final Context context = Relations.this;
-			    Intent intent = new Intent(context, Memory.class);
-                startActivity(intent); 
-                
-                
-			}
-		});
-        final TextView gma = (TextView) findViewById(R.id.gma_txt);
-        gma.setOnClickListener(new View.OnClickListener() {         
-            @Override
-            public void onClick(View v) {
-                final Context context = Relations.this;
-    			Intent intent = new Intent(context, Memory.class);
-                startActivity(intent); 
-            }
-        });
-        
-        
-        
-        
+ 
         
         //Handles Clicks to Frame 2
         final FrameLayout frame02 = (FrameLayout) findViewById(R.id.frameLayout2);
@@ -85,13 +67,7 @@ public class Relations extends Activity implements OnClickListener {
             	initiatePopupWindow(R.id.not_a, R.layout.not_avail, 375, 200); 
             }
         });
-        final TextView johnd = (TextView) findViewById(R.id.memory_txt2);
-        johnd.setOnClickListener(new View.OnClickListener() {         
-            @Override
-            public void onClick(View v) {
-            	initiatePopupWindow(R.id.not_a, R.layout.not_avail, 375, 200);
-            }
-        });
+
         
         //Handles Click to Frame 3
         final FrameLayout frame03 = (FrameLayout) findViewById(R.id.frameLayout3);
@@ -101,15 +77,66 @@ public class Relations extends Activity implements OnClickListener {
             	initiatePopupWindow(R.id.not_a, R.layout.not_avail, 375, 200); 
             }
         });
-        final TextView janed = (TextView) findViewById(R.id.memory_txt3);
-        janed.setOnClickListener(new View.OnClickListener() {         
-            @Override
-            public void onClick(View v) {
-            	initiatePopupWindow(R.id.not_a, R.layout.not_avail, 375, 200);
-            }
-        });
+
+        
+        
+        //tts
+        tts = new TextToSpeech(this, this);
+        
+        
     }
     
+    
+    
+    
+    //tts destroy
+    @Override
+    public void onDestroy()
+    {
+        // Do Not forget to Stop the TTS Engine when you do not require it        
+            if (tts != null) 
+            {
+                tts.stop();
+                tts.shutdown();
+            }
+            super.onDestroy(); 
+    }
+    
+    public void onInit(int status) 
+    {
+    	
+            if (status == TextToSpeech.SUCCESS) 
+            {
+                    int result = tts.setLanguage(Locale.US);
+                    if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) 
+                    {
+                           Toast.makeText(this, "This Language is not supported", Toast.LENGTH_LONG).show();
+                    }
+                    else 
+                    {
+                        //Toast.makeText(this, "Ready to Speak", Toast.LENGTH_LONG).show();
+                        //speakTheText();
+                    }
+            } 
+            else 
+            {
+                 Toast.makeText(this, "Can Not Speak", Toast.LENGTH_LONG).show();
+            }
+            
+    }
+
+    private void speakTheText(int i)
+    {
+    	String textToSpeak;
+    	if (i == 1)
+    		textToSpeak = this.getResources().getString(R.string.helpTxt);
+    	else 
+    		textToSpeak = this.getResources().getString(R.string.notAvail);
+    	
+        tts.speak(textToSpeak, TextToSpeech.QUEUE_FLUSH, null);
+    }
+    
+
     
     
     //voice integration
@@ -189,18 +216,43 @@ public class Relations extends Activity implements OnClickListener {
 		    pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
 		    btnClosePopup = (Button) layout.findViewById(R.id.btn_close_popup); 
 		    btnClosePopup.setOnClickListener(cancel_button_click_listener);
+		    
+		    if (resource == R.id.not_a) {
+		    	buttonSpeak = (ImageButton) layout.findViewById(R.id.ttsOnNA);
+	        	buttonSpeak.setOnClickListener(speakHelpNA);
+		    }
+		    else if (resource == R.id.help_pu) {
+		    	buttonSpeak = (ImageButton) layout.findViewById(R.id.ttsOn);
+		        buttonSpeak.setOnClickListener(speakHelp);
+		    }
+
+	        
 
     	} catch (Exception e) { 
     	e.printStackTrace(); 
     	} 
     }
+    
     private OnClickListener cancel_button_click_listener = new OnClickListener() { 
     	public void onClick(View v) { 
-    	pwindo.dismiss();
-
+    		pwindo.dismiss();
+    		//need command to interupt as well
+    		tts.stop();
+    		
     	} 
     };
     
+    private OnClickListener speakHelp = new OnClickListener() { 
+    	public void onClick(View v) {
+            speakTheText(1);            
+        }
+    };
+    
+    private OnClickListener speakHelpNA = new OnClickListener() { 
+    	public void onClick(View v) {
+            speakTheText(2);            
+        }
+    };
     
 
 

@@ -1,6 +1,8 @@
 package fetters.memorybook;
 
 import java.util.ArrayList;
+import java.util.Locale;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.*;
@@ -8,8 +10,10 @@ import android.content.*;
 import android.view.View.*;
 import android.speech.RecognizerIntent;
 import android.widget.*;
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.TextToSpeech.OnInitListener;
 
-public class Memory extends Activity implements OnClickListener {
+public class Memory extends Activity implements OnClickListener, OnInitListener {
 	//pop ups 
 	Button btnClosePopup; 
 	ImageButton btnCreatePopup, add, help, edit;
@@ -17,14 +21,19 @@ public class Memory extends Activity implements OnClickListener {
 	
 	//For Voice
     protected static final int REQUEST_OK = 1;
-
+    
+    //tts
+    ImageButton buttonSpeak;
+    ImageButton buttonSpeak2;
+    TextToSpeech tts ;
+    
+    
+    
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_memories);
-		
-		
-		
+
         add = (ImageButton) findViewById(R.id.add);
         add.setOnClickListener(onClickListener);
         edit = (ImageButton) findViewById(R.id.edit);
@@ -38,36 +47,133 @@ public class Memory extends Activity implements OnClickListener {
         frame01.setOnClickListener(new View.OnClickListener() {         
             @Override
             public void onClick(View v) {
-                final Context context = Memory.this;
-    			Intent intent = new Intent(context, Memory.class); //need to change location
-                startActivity(intent); 
+            	changeView(1);
             }
         });
+
         
         final FrameLayout frame02 = (FrameLayout) findViewById(R.id.frameLayout22);
         frame02.setOnClickListener(new View.OnClickListener() {         
             @Override
             public void onClick(View v) {
-            	//need to change location and from popup
+            	changeView(2);
             }
         });
+
         
         final FrameLayout frame03 = (FrameLayout) findViewById(R.id.frameLayout23);
         frame03.setOnClickListener(new View.OnClickListener() {         
             @Override
             public void onClick(View v) {
-            	//need to change location and from popup
+            	changeView(3);
             }
         });
+
         
         final FrameLayout frame04 = (FrameLayout) findViewById(R.id.frameLayout24);
         frame04.setOnClickListener(new View.OnClickListener() {         
             @Override
             public void onClick(View v) {
-            	//need to change location and from popup
+            	changeView(4);
             }
         });
+
+        
+        //tts     
+        tts = new TextToSpeech(this, this);
+
+		 
+        
+    }
+	
+	public void changeView (int i) {
+		switch(i){
+        case 1:
+        	//change below code to Player and correct song 
+        	
+        	/*final Context context = Memory.this;
+    		Intent intent = new Intent(context, Memory.class); //need to change location
+            startActivity(intent); */
+            Toast.makeText(this, "Option 1", Toast.LENGTH_LONG).show();
+        break;
+        case 2:
+        	//change below code to Player and correct song 
+        	
+        	/*final Context context = Memory.this;
+    		Intent intent = new Intent(context, Memory.class); //need to change location
+            startActivity(intent); */
+            Toast.makeText(this, "Option 2", Toast.LENGTH_LONG).show();
+        break;
+        case 3:
+        	//change below code to Player and correct song 
+        	
+        	/*final Context context = Memory.this;
+    		Intent intent = new Intent(context, Memory.class); //need to change location
+            startActivity(intent); */
+            Toast.makeText(this, "Option 3", Toast.LENGTH_LONG).show();
+        break;
+        case 4:
+        	//change below code to Player and correct song 
+        	
+        	/*final Context context = Memory.this;
+    		Intent intent = new Intent(context, Memory.class); //need to change location
+            startActivity(intent); */ 
+            Toast.makeText(this, "Option 4", Toast.LENGTH_LONG).show();
+        break;
+        
+    }
+		
+		
+	
 	}
+	
+	//tts destroy
+    @Override
+    public void onDestroy()
+    {
+        // Do Not forget to Stop the TTS Engine when you do not require it        
+            if (tts != null) 
+            {
+                tts.stop();
+                tts.shutdown();
+            }
+            super.onDestroy(); 
+    }
+    
+    public void onInit(int status) 
+    {
+    	
+            if (status == TextToSpeech.SUCCESS) 
+            {
+                    int result = tts.setLanguage(Locale.US);
+                    if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) 
+                    {
+                           Toast.makeText(this, "This Language is not supported", Toast.LENGTH_LONG).show();
+                    }
+                    else 
+                    {
+                        //Toast.makeText(this, "Ready to Speak", Toast.LENGTH_LONG).show();
+                        //speakTheText();
+                    }
+            } 
+            else 
+            {
+                 Toast.makeText(this, "Can Not Speak", Toast.LENGTH_LONG).show();
+            }
+            
+    }
+
+    private void speakTheText(int i)
+    {
+    	String textToSpeak;
+    	if (i == 1)
+    		textToSpeak = this.getResources().getString(R.string.helpTxt);
+    	else 
+    		textToSpeak = this.getResources().getString(R.string.notAvail);
+    	
+        tts.speak(textToSpeak, TextToSpeech.QUEUE_FLUSH, null);
+    }
+	
 	
 	//voice integration
     @Override
@@ -134,16 +240,36 @@ public class Memory extends Activity implements OnClickListener {
 		    pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
 		    btnClosePopup = (Button) layout.findViewById(R.id.btn_close_popup); 
 		    btnClosePopup.setOnClickListener(cancel_button_click_listener);
+		    
+		    if (resource == R.id.not_a) {
+		    	buttonSpeak = (ImageButton) layout.findViewById(R.id.ttsOnNA);
+	        	buttonSpeak.setOnClickListener(speakHelpNA);
+		    }
+		    else if (resource == R.id.help_pu) {
+		    	buttonSpeak = (ImageButton) layout.findViewById(R.id.ttsOn);
+		        buttonSpeak.setOnClickListener(speakHelp);
+		    }
 
     	} catch (Exception e) { 
-    	e.printStackTrace(); 
+    		e.printStackTrace(); 
     	} 
     }
     private OnClickListener cancel_button_click_listener = new OnClickListener() { 
     	public void onClick(View v) { 
     	pwindo.dismiss();
-
+    	tts.stop();
     	} 
+    };
+    private OnClickListener speakHelp = new OnClickListener() { 
+    	public void onClick(View v) {
+            speakTheText(1);            
+        }
+    };
+    
+    private OnClickListener speakHelpNA = new OnClickListener() { 
+    	public void onClick(View v) {
+            speakTheText(2);            
+        }
     };
     
 }
