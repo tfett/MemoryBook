@@ -9,8 +9,7 @@
     android:paddingRight="0dp"
     android:paddingTop="5dp"
     android:scrollbarStyle="insideOverlay"
-    android:scrollbars="vertical"
-    android:textAlignment="center"
+    android:scrollbars="vertical"    
     tools:context=".Relations" >
 
 	<FrameLayout
@@ -25,8 +24,8 @@
         android:layout_gravity="center_horizontal"
         android:fontFamily="Verdana"
         android:text="@string/title_memories"
-        android:textAlignment="gravity"
-        android:textColor="@android:color/holo_green_dark"
+        
+        
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -101,7 +100,7 @@
                     android:contentDescription="@string/memory1"
                     android:ems="10"
                     android:text="@string/memory1"
-                    android:textAlignment="center"
+                    
                     android:textColor="#fff"
                     android:textSize="30sp" />
                 
@@ -133,7 +132,7 @@
                     android:contentDescription="@string/memory2"
                     android:ems="10"
                     android:text="@string/memory2"
-                    android:textAlignment="center"
+                    
                     android:textColor="#fff"
                     android:textSize="30sp" />
             </FrameLayout>
@@ -164,7 +163,7 @@
                     android:contentDescription="@string/memory3"
                     android:ems="10"
                     android:text="@string/memory3"
-                    android:textAlignment="center"
+                    
                     android:textColor="#fff"
                     android:textSize="30sp" />
             </FrameLayout>
@@ -195,7 +194,7 @@
                     android:contentDescription="@string/memory4"
                     android:ems="10"
                     android:text="@string/memory4"
-                    android:textAlignment="center"
+                    
                     android:textColor="#fff"
                     android:textSize="30sp" />
             </FrameLayout>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">memoryBook</string>
+    <string name="app_name">Memory Bookshelf</string>
     <string name="action_settings">Settings</string>
     <string name="welcome">Welcome to Memory Book please select a relation below or got to help</string>
     <string name="add">Add Additional Item</string>
@@ -32,10 +32,11 @@
         previous click or say previous or simply provide an additional command associated with a 
         different menu.  
         \n\nTo Pause a memory click the pause button. And to close the application click the 
-        home button. 
-         </string>
+        home button. </string>
     <string name="close">Close</string>
     <string name="notAvail">Sorry this feature is not available yet!</string>
     <string name="tts">Text to Speech On</string>
+    <string name="title_activity_memory">Memory</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
