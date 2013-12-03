@@ -7,7 +7,7 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="5dp"
-    android:textAlignment="center"
+    
     tools:context=".Relations" >
 
     <FrameLayout
@@ -21,9 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:fontFamily="Verdana"
-            android:text="@string/title_relation"
-            android:textAlignment="gravity"
-            android:textColor="@android:color/holo_green_dark"
+            android:text="@string/title_relation"                        
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -52,7 +50,7 @@
         android:fontFamily="Verdana"
         android:gravity="center"
         android:text="@string/welcome"
-        android:textAlignment="center"
+        
         android:textAllCaps="false"
         android:textColor="#fff"
         android:textSize="17sp"
@@ -112,8 +110,8 @@
             android:ems="10"
             android:paddingTop="15dp"
             android:text="@string/gma_name"
-            android:textAlignment="center"
-            android:textColor="@android:color/holo_blue_dark"
+            
+            
             android:textSize="30sp"
             android:width="200dp" />
     </FrameLayout>
@@ -146,8 +144,8 @@
             android:contentDescription="@string/ph2"
             android:ems="10"
             android:text="@string/ph1"
-            android:textAlignment="center"
-            android:textColor="@android:color/holo_blue_dark"
+            
+            
             android:textSize="30sp"
             android:width="200dp" />
     </FrameLayout>
@@ -180,8 +178,8 @@
             android:contentDescription="@string/ph1"
             android:ems="10"
             android:text="@string/ph2"
-            android:textAlignment="center"
-            android:textColor="@android:color/holo_blue_dark"
+            
+            
             android:textSize="30sp"
             android:width="200dp" />
     </FrameLayout>
