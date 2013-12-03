@@ -5,6 +5,7 @@ import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+<<<<<<< HEAD
 import android.os.Environment;
 
 public class MemoriesManager {
@@ -12,6 +13,11 @@ public class MemoriesManager {
 	File sdPathFile = Environment.getExternalStorageDirectory();
 	String filePath = sdPathFile.getAbsolutePath();
 	final String MEDIA_PATH = new String(filePath + "/memory/");
+=======
+public class MemoriesManager {
+	// SDCard Path
+	final String MEDIA_PATH = new String("/storage/sdcard0/Download");
+>>>>>>> 5c306f27e4e6a0573419ed74b608bc0924a0ccaa
 	// final String MEDIA_PATH = new String("file:///android_asset");
 	private ArrayList<HashMap<String, String>> memoriesList = new ArrayList<HashMap<String, String>>();
 

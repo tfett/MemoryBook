@@ -1,5 +1,6 @@
 package com.memorybookshelf.memoryplayer;
 
+<<<<<<< HEAD
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -15,13 +16,25 @@ import android.util.Log;
 import android.view.*;
 import android.content.*;
 import android.content.res.AssetManager;
+=======
+import java.util.ArrayList;
+import java.util.Locale;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.*;
+import android.content.*;
+>>>>>>> 5c306f27e4e6a0573419ed74b608bc0924a0ccaa
 import android.view.View.*;
 import android.speech.*;
 import android.speech.tts.*;
 import android.widget.*;
 
 public class Relations extends Activity implements OnClickListener,
+<<<<<<< HEAD
 	TextToSpeech.OnInitListener {
+=======
+		TextToSpeech.OnInitListener {
+>>>>>>> 5c306f27e4e6a0573419ed74b608bc0924a0ccaa
 	// pop ups
 	Button btnClosePopup;
 	ImageButton btnCreatePopup, add, help, edit;
@@ -42,6 +55,7 @@ public class Relations extends Activity implements OnClickListener,
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_relations);
+<<<<<<< HEAD
 		
 		// change view
 		SharedPreferences pref=PreferenceManager.getDefaultSharedPreferences(this);
@@ -52,6 +66,10 @@ public class Relations extends Activity implements OnClickListener,
 		  }
 		copyAssets();
 		
+=======
+		// change view
+
+>>>>>>> 5c306f27e4e6a0573419ed74b608bc0924a0ccaa
 		// Handles Clicks to common items
 		findViewById(R.id.mic).setOnClickListener(this);
 		add = (ImageButton) findViewById(R.id.add);
@@ -94,6 +112,7 @@ public class Relations extends Activity implements OnClickListener,
 		tts = new TextToSpeech(this, this);
 
 	}
+<<<<<<< HEAD
 	
 	private void copyAssets() {
 	    AssetManager assetManager = getAssets();
@@ -144,6 +163,9 @@ public class Relations extends Activity implements OnClickListener,
 	    }
 	}
 	
+=======
+
+>>>>>>> 5c306f27e4e6a0573419ed74b608bc0924a0ccaa
 	// tts destroy
 	@Override
 	public void onDestroy() {
