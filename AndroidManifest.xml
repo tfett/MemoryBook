@@ -1,32 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="fetters.memorybook"
+    package="com.memorybookshelf.memoryplayer"
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="18" />
+    <uses-sdk android:minSdkVersion="8" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
 
     <application
-        android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:label="@string/app_name" >
         <activity
-            android:name="fetters.memorybook.Relations"
+            android:name="com.memorybookshelf.memoryplayer.MemoryPlayerActivity"
+            android:configChanges="keyboardHidden|orientation"
             android:label="@string/app_name" >
+<!--             <intent-filter> -->
+<!--                 <action android:name="android.intent.action.MAIN" /> -->
+
+<!--                 <category android:name="android.intent.category.LAUNCHER" /> -->
+<!--             </intent-filter> -->
+        </activity>
+        <activity android:name="com.memorybookshelf.memoryplayer.PlayListActivity" />
+        <activity android:name="com.memorybookshelf.memoryplayer.TTSActivity" >
+        </activity>
+        <activity android:name="com.memorybookshelf.memoryplayer.Relations" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity 
-            android:name="fetters.memorybook.Memory" 
-            android:label="@string/memory"> 
+        <activity
+            android:name="com.memorybookshelf.memoryplayer.Memory"
+            android:label="@string/title_activity_memory"
+            android:parentActivityName="com.memorybookshelf.memoryplayer.MemoryPlayerActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.memorybookshelf.memoryplayer.MemoryPlayerActivity" />
         </activity>
-        
     </application>
 
-</manifest>
+</manifest> <!-- MemoryPlayerActivity -->
+
+
