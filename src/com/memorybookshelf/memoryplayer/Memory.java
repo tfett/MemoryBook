@@ -219,7 +219,7 @@ public class Memory extends MemoryPlayerActivity implements OnClickListener,
 		if (requestCode == REQUEST_OK && resultCode == RESULT_OK) {
 			ArrayList<String> thingsYouSaid = data
 					.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-			
+
 			if (thingsYouSaid.get(0).contains("love")) {
 				changeView(1);
 			} else if (thingsYouSaid.get(0).contains("miss")) {
@@ -314,7 +314,5 @@ public class Memory extends MemoryPlayerActivity implements OnClickListener,
 			speakTheText(2);
 		}
 	};
-	
-	
 
 }

@@ -1,6 +1,5 @@
 package com.memorybookshelf.memoryplayer;
 
-<<<<<<< HEAD
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -16,25 +15,14 @@ import android.util.Log;
 import android.view.*;
 import android.content.*;
 import android.content.res.AssetManager;
-=======
-import java.util.ArrayList;
-import java.util.Locale;
-import android.os.Bundle;
-import android.app.Activity;
-import android.view.*;
-import android.content.*;
->>>>>>> 5c306f27e4e6a0573419ed74b608bc0924a0ccaa
 import android.view.View.*;
 import android.speech.*;
 import android.speech.tts.*;
 import android.widget.*;
 
 public class Relations extends Activity implements OnClickListener,
-<<<<<<< HEAD
-	TextToSpeech.OnInitListener {
-=======
 		TextToSpeech.OnInitListener {
->>>>>>> 5c306f27e4e6a0573419ed74b608bc0924a0ccaa
+
 	// pop ups
 	Button btnClosePopup;
 	ImageButton btnCreatePopup, add, help, edit;
@@ -55,21 +43,16 @@ public class Relations extends Activity implements OnClickListener,
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_relations);
-<<<<<<< HEAD
-		
-		// change view
-		SharedPreferences pref=PreferenceManager.getDefaultSharedPreferences(this);
-		if(!pref.contains("firstInstall"))
-		  {
-		  //first install, so do some stuff...
-		  pref.edit().putBoolean("firstInstall",true).commit();
-		  }
-		copyAssets();
-		
-=======
-		// change view
 
->>>>>>> 5c306f27e4e6a0573419ed74b608bc0924a0ccaa
+		// change view
+		SharedPreferences pref = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		if (!pref.contains("firstInstall")) {
+			// first install, so do some stuff...
+			pref.edit().putBoolean("firstInstall", true).commit();
+		}
+		copyAssets();
+
 		// Handles Clicks to common items
 		findViewById(R.id.mic).setOnClickListener(this);
 		add = (ImageButton) findViewById(R.id.add);
@@ -112,60 +95,57 @@ public class Relations extends Activity implements OnClickListener,
 		tts = new TextToSpeech(this, this);
 
 	}
-<<<<<<< HEAD
-	
+
 	private void copyAssets() {
-	    AssetManager assetManager = getAssets();
-	    String[] files = null;
-	    File directory = new File(Environment.getExternalStorageDirectory()+File.separator+"memory");
-	    directory.mkdirs();
-	    
-	    try {
-	        files = assetManager.list("");
-	    } catch (IOException e) {
-	        Log.e("tag", "Failed to get asset file list.", e);
-	    }
+		AssetManager assetManager = getAssets();
+		String[] files = null;
+		File directory = new File(Environment.getExternalStorageDirectory()
+				+ File.separator + "memory");
+		directory.mkdirs();
 
-	    for(String filename : files) {
-	        InputStream in = null;
-	        OutputStream out = null;
-	        try {
-	        	
-	          in = assetManager.open(filename);
-	          File outFile =new File(Environment.getExternalStorageDirectory() +File.separator+ "memory" +File.separator + filename);
-	        	try
-	        	{
-	        		outFile.createNewFile();
-	        	}
-	        	catch (IOException e)
-	        	{
-	        	   // TODO Auto-generated catch block
-	        	   e.printStackTrace();
-	        	}
-	          out = new FileOutputStream(outFile);
-	          copyFile(in, out);
-	          in.close();
-	          in = null;
-	          out.flush();
-	          out.close();
-	          out = null;
-	        } catch(IOException e) {
-	            Log.e("tag", "Failed to copy asset file: " + filename, e);
-	        }       
-	    }
+		try {
+			files = assetManager.list("");
+		} catch (IOException e) {
+			Log.e("tag", "Failed to get asset file list.", e);
+		}
+
+		for (String filename : files) {
+			InputStream in = null;
+			OutputStream out = null;
+			try {
+
+				in = assetManager.open(filename);
+				File outFile = new File(
+						Environment.getExternalStorageDirectory()
+								+ File.separator + "memory" + File.separator
+								+ filename);
+				try {
+					outFile.createNewFile();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				out = new FileOutputStream(outFile);
+				copyFile(in, out);
+				in.close();
+				in = null;
+				out.flush();
+				out.close();
+				out = null;
+			} catch (IOException e) {
+				Log.e("tag", "Failed to copy asset file: " + filename, e);
+			}
+		}
 	}
-	
+
 	private void copyFile(InputStream in, OutputStream out) throws IOException {
-	    byte[] buffer = new byte[1024];
-	    int read;
-	    while((read = in.read(buffer)) != -1){
-	      out.write(buffer, 0, read);
-	    }
+		byte[] buffer = new byte[1024];
+		int read;
+		while ((read = in.read(buffer)) != -1) {
+			out.write(buffer, 0, read);
+		}
 	}
-	
-=======
 
->>>>>>> 5c306f27e4e6a0573419ed74b608bc0924a0ccaa
 	// tts destroy
 	@Override
 	public void onDestroy() {
