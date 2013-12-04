@@ -352,7 +352,7 @@ public class MemoryPlayerActivity extends Activity implements
 			memoryProgressBar.setMax(100);
 
 			// Updating progress bar
-			updateProgressBar();
+			//updateProgressBar(); 
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		} catch (IllegalStateException e) {
